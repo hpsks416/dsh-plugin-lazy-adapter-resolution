@@ -2,10 +2,11 @@
 
 DSH 插件在 `apply()` 阶段不要同步解析「可能还没注册好」的内层 provider 适配器，改为请求时懒解析。
 
-## 适用对象
+## 环境依赖
 
-- DeepSeek Harness（DSH）用户：一个可由 AI agent 按需自动加载的 skill，克隆即用、无需构建。
-- 写 DSH 插件、依赖其他 LLM provider 适配器的开发者
+- 操作系统：Windows
+- 运行时：Node.js
+- 第三方软件：无（仅依赖系统自带的 PowerShell / 标准库）
 
 ## 目录结构
 
