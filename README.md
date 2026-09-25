@@ -1,33 +1,25 @@
 # dsh-plugin-lazy-adapter-resolution
 
-Use when writing a DSH plugin that depends on an LLM provider adapter registered by another plugin.
+DSH 插件在 `apply()` 阶段不要同步解析「可能还没注册好」的内层 provider 适配器，改为请求时懒解析。
 
-## 这是什么
+## 适用对象
 
-DSH（DeepSeek Harness）skill —— 一个可由 AI agent 按需自动加载的能力单元。克隆到 skill 目录后，DSH 会依据上方描述自动发现并触发它，无需构建。
-
-## 安装
-
-最简单：用 [dsh-config](https://github.com/hpsks416/dsh-config) 的一键脚本 `install.ps1` 批量安装全部 skill。单个安装：
-
-    # GitHub
-    git clone https://github.com/hpsks416/dsh-plugin-lazy-adapter-resolution.git "$env:USERPROFILE\.dsh\skills\dsh-plugin-lazy-adapter-resolution"
-    # 或 Gitee（国内直连更快）
-    git clone https://gitee.com/hpsks416/dsh-plugin-lazy-adapter-resolution.git "$env:USERPROFILE\.dsh\skills\dsh-plugin-lazy-adapter-resolution"
-
-克隆后 DSH 会自动重新发现，无需重启。更新用：
-
-    git -C "$env:USERPROFILE\.dsh\skills\dsh-plugin-lazy-adapter-resolution" pull
+- DeepSeek Harness（DSH）用户：一个可由 AI agent 按需自动加载的 skill，克隆即用、无需构建。
+- 写 DSH 插件、依赖其他 LLM provider 适配器的开发者
 
 ## 目录结构
 
     dsh-plugin-lazy-adapter-resolution/
     ├── SKILL.md    技能入口与工作流
-    （无附加文件，纯指令型 skill）
 
-## 依赖
+## 安装
 
-无运行时依赖，纯指令型 skill（由 agent 直接执行 Markdown 工作流）。
+    # GitHub
+    git clone https://github.com/hpsks416/dsh-plugin-lazy-adapter-resolution.git "$env:USERPROFILE\.dsh\skills\dsh-plugin-lazy-adapter-resolution"
+    # 或 Gitee（国内直连）
+    git clone https://gitee.com/hpsks416/dsh-plugin-lazy-adapter-resolution.git "$env:USERPROFILE\.dsh\skills\dsh-plugin-lazy-adapter-resolution"
+
+克隆后 DSH 自动重新发现，无需构建。
 
 ## License
 
